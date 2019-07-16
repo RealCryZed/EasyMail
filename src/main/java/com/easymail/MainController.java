@@ -35,7 +35,7 @@ public class MainController {
         Session session = Session.getDefaultInstance(props,
                 new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("tank16092002@gmail.com", "16092002");
+                return new PasswordAuthentication("tank16092002@gmail.com", "bujhmgtnhjd2002");
             }
                 }
                 );
