@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.easymail.MainController">
+   <children>
+      <JFXButton fx:id="mailButton" layoutX="540.0" layoutY="270.0" onAction="#setMailButton" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: #2E59B6;" text="Mail" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="26.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
