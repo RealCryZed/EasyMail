@@ -12,11 +12,11 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Parent root = FXMLLoader.load((getClass().getResource("com.easymail/mainPage.fxml")));
+        Parent root = FXMLLoader.load((getClass().getResource("mainPage.fxml")));
         Scene scene = new Scene(root);
 
-//        primaryStage.initStyle(StageStyle.TRANSPARENT);
-//        primaryStage.setResizable(false);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.setResizable(false);
 
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -24,6 +24,6 @@ public class App extends Application {
 
     public static void main(String[] args) {
 
-        launch();
+        launch(args);
     }
 }
