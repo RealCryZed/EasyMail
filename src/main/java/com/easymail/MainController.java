@@ -2,12 +2,14 @@ package com.easymail;
 
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
+import java.util.Date;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.apache.log4j.Logger;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -39,7 +41,10 @@ public class MainController {
     @FXML
     private JFXButton exitButton;
 
+    private EntireData entireData = new EntireData();
     private Properties props = new Properties();
+
+    private Logger logger = Logger.getLogger(MainController.class);
 
     @FXML
     void setToExitButton(ActionEvent event) {
@@ -49,10 +54,10 @@ public class MainController {
     @FXML
     void setSendMailButton(ActionEvent event) {
 
-        String from = from_TextField.getText();
-        String to = to_TextField.getText();
-        String subject = subject_TextField.getText();
-        String text = mainTextArea.getText();
+        entireData.setFrom(from_TextField.getText());
+        entireData.setTo(to_TextField.getText());
+        entireData.setSubject(subject_TextField.getText());
+        entireData.setText(mainTextArea.getText());
 
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.socketFactory.port", "465");
@@ -63,18 +68,20 @@ public class MainController {
         Session session = Session.getDefaultInstance(props,
                 new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(from, "bujhmgtnhjd2002");
+                return new PasswordAuthentication(entireData.getFrom(), "bujhmgtnhjd2002");
             }
                 }
                 );
 
         try {
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(from));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-            message.setSubject(subject);
-            message.setText(text);
+            message.setFrom(new InternetAddress(entireData.getFrom()));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(entireData.getTo()));
+            message.setSubject(entireData.getSubject());
+            message.setText(entireData.getText());
             Transport.send(message);
+
+            addLogs();
 
             System.err.println("Message was sent successfully!");
         } catch (MessagingException e) {
@@ -88,7 +95,13 @@ public class MainController {
 
     }
 
-    private void sendEmailMessage() {
+    private void addLogs() {
 
+        Date date = new Date();
+        logger.info(date);
+        logger.info("FROM: " + entireData.getFrom());
+        logger.info("TO: " + entireData.getTo());
+        logger.info("SUBJECT: " + entireData.getSubject());
+        logger.info("TEXT: " + entireData.getText());
     }
 }
