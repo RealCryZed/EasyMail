@@ -44,7 +44,7 @@ public class MainController {
     private EntireData entireData = new EntireData();
     private Properties props = new Properties();
 
-    private Logger logger = Logger.getLogger(MainController.class);
+    private final static Logger logger = Logger.getLogger(MainController.class.getName());
 
     @FXML
     void setToExitButton(ActionEvent event) {
@@ -98,10 +98,11 @@ public class MainController {
     private void addLogs() {
 
         Date date = new Date();
-        logger.info(date);
+        logger.info(date.toString());
         logger.info("FROM: " + entireData.getFrom());
         logger.info("TO: " + entireData.getTo());
         logger.info("SUBJECT: " + entireData.getSubject());
         logger.info("TEXT: " + entireData.getText());
+        logger.info("--------------------------------------------------");
     }
 }
