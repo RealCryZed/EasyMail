@@ -6,6 +6,8 @@ import java.util.Properties;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -20,12 +22,38 @@ public class MainController {
     private URL location;
 
     @FXML
-    private JFXButton mailButton;
+    private JFXButton sendMailButton;
 
     @FXML
-    void setMailButton(ActionEvent event) {
+    private TextArea mainTextArea;
 
-        Properties props = new Properties();
+    @FXML
+    private TextField from_TextField;
+
+    @FXML
+    private TextField to_TextField;
+
+    @FXML
+    private TextField subject_TextField;
+
+    @FXML
+    private JFXButton exitButton;
+
+    private Properties props = new Properties();
+
+    @FXML
+    void setToExitButton(ActionEvent event) {
+        System.exit(0);
+    }
+
+    @FXML
+    void setSendMailButton(ActionEvent event) {
+
+        String from = from_TextField.getText();
+        String to = to_TextField.getText();
+        String subject = subject_TextField.getText();
+        String text = mainTextArea.getText();
+
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.socketFactory.port", "465");
         props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
@@ -35,20 +63,20 @@ public class MainController {
         Session session = Session.getDefaultInstance(props,
                 new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("tank16092002@gmail.com", "bujhmgtnhjd2002");
+                return new PasswordAuthentication(from, "bujhmgtnhjd2002");
             }
                 }
                 );
 
         try {
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("tank16092002@gmail.com"));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("bujhmgtnhjd@bk.ru"));
-            message.setSubject("Hi, this is bot's message!");
-            message.setText("Hi, I want to be friend with you!");
+            message.setFrom(new InternetAddress(from));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+            message.setSubject(subject);
+            message.setText(text);
             Transport.send(message);
 
-            System.out.println("Message was sent successfully!");
+            System.err.println("Message was sent successfully!");
         } catch (MessagingException e) {
             e.printStackTrace();
         }
@@ -57,6 +85,10 @@ public class MainController {
     @FXML
     void initialize() {
 
+
+    }
+
+    private void sendEmailMessage() {
 
     }
 }

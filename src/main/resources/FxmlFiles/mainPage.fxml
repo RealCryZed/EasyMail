@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.easymail.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #1C2127;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.easymail.MainController">
    <children>
-      <JFXButton fx:id="mailButton" layoutX="540.0" layoutY="270.0" onAction="#setMailButton" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: #2E59B6;" text="Mail" textFill="WHITE">
+      <JFXButton fx:id="sendMailButton" layoutX="556.0" layoutY="519.0" onAction="#setSendMailButton" prefHeight="34.0" prefWidth="90.0" style="-fx-background-color: #2E59B6;" text="Send" textFill="WHITE">
          <font>
-            <Font name="Calibri Bold" size="26.0" />
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <TextArea fx:id="mainTextArea" layoutX="367.0" layoutY="278.0" prefHeight="200.0" prefWidth="467.0" />
+      <TextField fx:id="from_TextField" layoutX="526.0" layoutY="104.0" prefHeight="25.0" prefWidth="307.0" />
+      <TextField fx:id="to_TextField" layoutX="526.0" layoutY="156.0" prefHeight="25.0" prefWidth="307.0" />
+      <TextField fx:id="subject_TextField" layoutX="526.0" layoutY="216.0" prefHeight="25.0" prefWidth="307.0" />
+      <Label layoutX="442.0" layoutY="106.0" text="From:" textFill="#9d9d9d">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="460.0" layoutY="158.0" text="To:" textFill="#9d9d9d">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="429.0" layoutY="220.0" text="Subject:" textFill="#9d9d9d">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="exitButton" layoutX="1144.0" layoutY="8.0" onAction="#setToExitButton" text="X" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
          </font>
       </JFXButton>
    </children>
