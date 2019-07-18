@@ -9,14 +9,19 @@ import javafx.stage.StageStyle;
 
 public class App extends Application {
 
+    private MovableApplication movableApplication;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        movableApplication = new MovableApplication();
 
         Parent root = FXMLLoader.load(getClass().getResource("/FxmlFiles/mainPage.fxml"));
         Scene scene = new Scene(root);
 
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setResizable(false);
+        movableApplication.makeWindowMovable(root, primaryStage);
 
         primaryStage.setScene(scene);
         primaryStage.show();

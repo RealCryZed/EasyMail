@@ -1,4 +1,4 @@
-package com.friendfinder;
+package com.easymail;
 
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
