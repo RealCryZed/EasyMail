@@ -17,8 +17,8 @@
          </font>
       </JFXButton>
       <TextArea fx:id="mainTextArea" layoutX="367.0" layoutY="278.0" prefHeight="200.0" prefWidth="467.0" promptText="Your Text" />
-      <TextField fx:id="to_TextField" layoutX="526.0" layoutY="156.0" prefHeight="25.0" prefWidth="307.0" />
-      <TextField fx:id="subject_TextField" layoutX="526.0" layoutY="216.0" prefHeight="25.0" prefWidth="307.0" />
+      <TextField fx:id="to_TextField" layoutX="526.0" layoutY="156.0" prefHeight="25.0" prefWidth="307.0" promptText="To" />
+      <TextField fx:id="subject_TextField" layoutX="526.0" layoutY="216.0" prefHeight="25.0" prefWidth="307.0" promptText="Subject" />
       <Label layoutX="442.0" layoutY="106.0" text="From:" textFill="#9d9d9d">
          <font>
             <Font name="Calibri" size="15.0" />
@@ -52,7 +52,7 @@
       </JFXButton>
       <TextField fx:id="fileName" editable="false" layoutX="894.0" layoutY="217.0" prefHeight="25.0" prefWidth="200.0" text="File Name" />
       <TextField fx:id="filePath" editable="false" layoutX="894.0" layoutY="176.0" prefHeight="25.0" prefWidth="200.0" text="File path" />
-      <TextField fx:id="mailToSignIn" layoutX="526.0" layoutY="103.0" prefHeight="25.0" prefWidth="307.0" />
+      <TextField fx:id="mailToSignIn" layoutX="526.0" layoutY="103.0" prefHeight="25.0" prefWidth="307.0" promptText="From" />
       <PasswordField fx:id="passwordToSignIn" layoutX="894.0" layoutY="103.0" prefHeight="25.0" prefWidth="200.0" promptText="Your Password" />
    </children>
 </AnchorPane>
